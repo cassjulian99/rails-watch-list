@@ -12,7 +12,15 @@
 <div class="list-container">
   <% @lists.each do |list| %>
     <div class="list-card">
-      <img src="<%= list.image_url || 'img' %>" alt="Image for <%= list.name %>">
+      <% if list.image.attached? %>
+        <%= image_tag list.image, alt: "Image for #{list.name}", class: "img-fluid mb-3" %>
+      <% else %>
+        <% if list.image.attached? %>
+  <p>Image URL: <%= url_for(list.image) %></p>
+<% else %>
+  <p>No image attached</p>
+<% end %>
+      <% end %>
       <div class="card-body">
         <h3><%= list.name %></h3>
         <p>Description or extra info about the list can go here.</p>

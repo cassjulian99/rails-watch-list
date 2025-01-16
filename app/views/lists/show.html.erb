@@ -1,5 +1,13 @@
 <h1><%= @list.name %></h1>
+
+<% if @list.image.attached? %>
+  <%= image_tag @list.image, alt: "Image for #{@list.name}", class: "img-fluid mb-3" %>
+<% else %>
+  <p>No image available for this list.</p>
+<% end %>
+
 <%= link_to 'Delete List', list_path(@list), method: :delete, data: { confirm: "Are you sure you want to delete this list?" }, class: "btn btn-danger" %>
+
 <h2>Movies in this List:</h2>
 <ul class="list-group">
   <% @list.bookmarks.each do |bookmark| %>
@@ -12,7 +20,7 @@
 
       <% if bookmark.id.present? %>
         <%= link_to "Delete", list_bookmark_path(@list.id, bookmark.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
-          <i class="fas fa-trash-alt"></i> Delete
+        <i class="fas fa-trash-alt"></i> Delete
       <% else %>
         <span>No delete link</span>
       <% end %>
