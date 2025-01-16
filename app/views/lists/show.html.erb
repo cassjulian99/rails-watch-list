@@ -10,10 +10,9 @@
         <span>Movie Not Available</span>
       <% end %>
 
-      <% if bookmark.id.present? %> <!-- Ensure bookmark has an ID before rendering delete link -->
+      <% if bookmark.id.present? %>
         <%= link_to "Delete", list_bookmark_path(@list.id, bookmark.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
           <i class="fas fa-trash-alt"></i> Delete
-        <% end %>
       <% else %>
         <span>No delete link</span>
       <% end %>

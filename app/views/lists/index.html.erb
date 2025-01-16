@@ -12,7 +12,7 @@
 <div class="list-container">
   <% @lists.each do |list| %>
     <div class="list-card">
-      <img src="<%= list.image_url || 'https://via.placeholder.com/300x200' %>" alt="Image for <%= list.name %>">
+      <img src="<%= list.image_url || 'img' %>" alt="Image for <%= list.name %>">
       <div class="card-body">
         <h3><%= list.name %></h3>
         <p>Description or extra info about the list can go here.</p>
