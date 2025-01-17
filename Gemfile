@@ -60,4 +60,4 @@ end
 gem 'rspec-rails', group: [ :test ]
 gem 'rails-controller-testing', group: [ :test ]
 gem 'dotenv-rails', groups: [:development, :test]
-gem 'cloudinary', '~> 1.16.0'
+gem 'cloudinary', '~> 2.2.0'
